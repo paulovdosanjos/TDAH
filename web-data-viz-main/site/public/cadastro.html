@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>AquaTech | Cadastro</title>
+  <title>TDAH | Cadastro</title>
 
   <script src="./js/sessao.js"></script>
 
@@ -26,9 +26,6 @@
       <ul class="navbar">
         <li>
           <a href="index.html">Inicial</a>
-        </li>
-        <li>
-          <a href="simulador.html">Simulador</a>
         </li>
         <li>|</li>
         <li>
@@ -56,12 +53,6 @@
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
-          <div class="campo">
-            <span>Nome:</span>
-            <select name="nome" id="listanome">
-              <option selected>Selecione uma empresa</option>
-            </select>
-          </div>
           <div class="campo">
             <span>Nome de Usuario:</span>
             <input id="ipt_nomeU" type="text" placeholder="Seu nome de usuario" />
@@ -92,7 +83,7 @@
   <!--footer inicio-->
   <div class="footer">
     <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
+      <h4>Feito com amor por Paulo Vinícius &hearts; SPTech &copy; 2023</h4>
       <span class="version">v1.0.0</span>
     </div>
   </div>
@@ -107,14 +98,13 @@
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
     var nomeUvar = ipt_nomeU.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
     var empresaVar = listanome.value
     if (
-      nomeVar == "" ||
+      nomeUVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == "" ||
@@ -139,7 +129,7 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
+        nomeUServer: nomeUVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
         nomeerver: empresaVar
@@ -177,9 +167,9 @@
       method: "GET",
     })
       .then(function (resposta) {
-        resposta.json().then((nome) => {
-          nome.forEach((empresa) => {
-            listanome.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+        resposta.json().then((nomeU) => {
+          nomeU.forEach((pesquisa) => {
+            listanome.innerHTML += `<option value='${pesquisa.id}'>${empresa.cnpj}</option>`;
           });
         });
       })
