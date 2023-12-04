@@ -107,6 +107,7 @@
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
     var empresaVar = listanome.value
+    var expVar = ipt_exp.value;
     if (
       nomeUVar == "" ||
       emailVar == "" ||
@@ -136,7 +137,7 @@
         nomeUServer: nomeUVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        nomeerver: empresaVar
+        expServer: expVar
       }),
     })
       .then(function (resposta) {
