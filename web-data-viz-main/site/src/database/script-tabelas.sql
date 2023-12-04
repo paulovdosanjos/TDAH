@@ -6,23 +6,24 @@
 comandos para mysql - banco local - ambiente de desenvolvimento
 */
 
-
+CREATE TABLE TDAH;
 USE TDAH;
 
 
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
+	nomeU VARCHAR(50),
 	email VARCHAR(50),
 	senha VARCHAR(50),
 	fk_pesquisa INT,
-	FOREIGN KEY (fk_pesquisa) REFERENCES pesquisa(id)
+	FOREIGN KEY (fk_pesquisa) REFERENCES pesquisa(id),
+    fk_indicado int,
+    foreign key (fk_indicado) references usuario(id)
 );
 
-CREATE TABLE aviso (
+CREATE TABLE pesquisa (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
+	experiencia VARCHAR(255),
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
@@ -77,7 +78,7 @@ comando para sql server - banco remoto - ambiente de produção
 -- fk_aquario INT FOREIGN KEY REFERENCES aquario(id)
 -- );
 
-insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
+-- insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
 
 
 /*
